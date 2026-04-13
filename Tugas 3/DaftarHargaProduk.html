@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Harga Produk</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        caption {
+            font-weight: bold;
+            font-size:25px ;
+        }
+        th,
+        td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: yellowgreen;
+            color: white;
+            text-align: center;
+        }
+        .promo-row {
+            background-color: burlywood;
+            font-weight: bold;
+        }
+        .text-right {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Daftar Harga Produk</caption>
+            <tr>
+                <th>Kategori</th>
+                <th>Produk</th>
+                <th>Harga</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Elektronik</td>
+                <td>Laptop</td>
+                <td>Rp.8.000.000</td>
+            </tr>
+            <tr>
+                <td>Smartphone</td>
+                <td>Rp.4.000.000</td>
+            </tr>
+            <tr>
+                <tr class="promo-row">
+                    <td colspan="2">Paket Bundling (Laptop + Mouse)</td>
+                    <td>Rp.8.200.000</td>
+            </tr>
+    </table>
+</body>
+</html>
