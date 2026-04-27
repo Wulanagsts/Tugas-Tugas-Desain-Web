@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Gambar</title>
+    <style>
+    .gallery-container { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: space-around; 
+    }
+    
+    .gallery-item { 
+        width: 22%; 
+        margin: 10px; 
+        text-align: center; 
+    }
+    
+    img { 
+        border: 3px dashed whitesmoke; 
+        width: 100%; 
+        height: auto; 
+        transition: all 0.3s ease; 
+    }
+
+    img:hover { 
+        border-color: pink; 
+        transform: scale(1.1); 
+    }
+
+    @media (max-width: 600px) { 
+        .gallery-item { width: 100%; } 
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">Gallery Gambar Tugas Desain Web</h1>
+        <p style="text-align: center;">Daftar gambar responsif dengan tautan aktif</p>
+        <hr>
+    </header>
+    <main>
+        <section class="gallery-container">
+            <figure class="gallery-item">
+                <a href="https://id.pinterest.com/pin/853572935651664949/">
+                    <img src="https://i.pinimg.com/736x/41/7f/e5/417fe54ab80c0bf8c05a3c1f3bdb3da8.jpg" alt="Lihat detail foto pemandangan pantai lainnya dengan Klik gambar " width="400" height="300">
+                </a>
+                <figcaption>Pemandangan Alam</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+                <a href="https://id.pinterest.com/pin/433964114068018445/">
+                    <img src="https://i.pinimg.com/736x/e0/88/13/e08813add10bbc2ec0dbd9314ece457c.jpg" alt="Buka halaman referensi hewan kepiting gemes" width="400" height="300">
+                </a>
+                <figcaption>Hewan gemes</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+                <a href="https://id.pinterest.com/pin/432134526757853540/">
+                    <img src="https://i.pinimg.com/736x/db/77/6f/db776ff1ef1f1c5160027411c2ef8a25.jpg" alt="Kunjungi halaman inspirasi bunga tulip di Pinterest" width="400" height="300">
+                </a>
+                <figcaption>Bunga </figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+                <a href="https://id.pinterest.com/pin/774124930230871/">
+                    <img src="https://i.pinimg.com/736x/62/b1/35/62b13597adb058c59ef4d1b9639daf9e.jpg" alt="Lihat detail gambar buah alpukat favorit" width="400" height="300">
+                </a>
+                <figcaption>Buah favorit</figcaption>
+            </figure>
+
+        </section>
+    </main>
+
+    <footer style="text-align: center; margin-top: 40px; color: #888;">
+        <p>cent&copy; 2026 STIKOM PGRI Banyuwangi</p>
+    </footer>
+
+</body>
+</html>
