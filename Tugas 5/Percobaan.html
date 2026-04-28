@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Background</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.7);
+            --box-overlay: rgba(0, 0, 0, 0.5);
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('https://i.pinimg.com/1200x/59/2b/3a/592b3a9c2a566fa469242669471cbaf4.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .kotak {
+            backdrop-filter: blur(5px); 
+            background-color: var(--box-overlay);
+            
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            
+            color: var(--primary-color);
+            text-align: center;
+            text-shadow: 2px 2px 4px var(--shadow-color);
+        }
+
+        .kotak h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .kotak p {
+            line-height: 1.6;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section class="kotak">
+            <h2>Reminder!</h2>
+            <p>"apa yang sudah di takar tidak akan tertukar, dan apa yang menjadi takdir sudah pasti akan hadir"</p>
+        </section>
+    </main>
+
+</body>
+</html>

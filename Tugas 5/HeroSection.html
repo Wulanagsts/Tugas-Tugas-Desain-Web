@@ -1,57 +1,76 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catatan Semester 2</title>
-    <style>
-        body { font-family: sans-serif; margin: 0; background: whitesmoke; display: flex; justify-content: center; padding: 20px; }
-        section { width: 400px; background: white; border: 1px solid #ccc; display: flex; flex-direction: column; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Section</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        header { 
-            height: 180px; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            color: white; text-align: center; background-size: cover; background-position: center;
-            background-image: url('https://i.pinimg.com/originals/e7/87/aa/e787aa509e071bccbe334d1693ad0d48.png?text=Mobile');
-        }
-        @media (min-width: 768px) { header { background-image: url('https://via.placeholder.com/800x250?text=Desktop'); } }
+    section {
+      position: relative;
+      height: 100vh;
+      font-family: Georgia, serif;
+    }
 
-        main { height: 300px; overflow-y: auto; padding: 10px; border-bottom: 1px solid #ccc; }
-        article { border-bottom: 1px solid #eee; padding: 10px 0; }
-        article h4 { margin: 0; color: navy; }
+    picture img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
 
-        footer { padding: 10px; display: flex; flex-direction: column; gap: 5px; }
-        input, button { padding: 8px; border: 1px solid #ccc; }
-        button { background: navy; color: white; cursor: pointer; }
-    </style>
+    header {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(30, 40, 80, 0.38);
+      color: white;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    h1 { font-size: 4rem; font-weight: bold; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+    p  { font-size: 1.5rem; opacity: 0.92; }
+
+    @media (max-width: 1023px) {
+      h1 { font-size: 2rem; }
+      p  { font-size: 1rem; }
+    }
+
+    @media (max-width: 599px) {
+      h1 { font-size: 1.5rem; }
+      p  { font-size: 0.9rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <section>
-        <header>
-            <h2>My Notes</h2>
-            <small>UDP Receiver Active</small>
-        </header>
+  <section aria-label="Hero">
+    <picture>
+  <source
+    srcset="https://i.pinimg.com/736x/34/ee/d7/34eed7b9fc24ecbb1abb4bf02a3a7b5a.jpg?auto=format&fit=crop&w=1920&q=80"
+    media="(min-width: 1024px)">
 
-        <main id="box"></main>
+  <source
+    srcset="https://i.pinimg.com/1200x/fd/30/de/fd30de1388652654a761fa1cb36d7ad0.jpg?auto=format&fit=crop&w=1024&q=80"
+    media="(min-width: 600px)">
 
-        <footer>
-            <input type="text" id="j" placeholder="Judul...">
-            <input type="text" id="i" placeholder="Isi...">
-            <button onclick="add()">Simpan</button>
-        </footer>
-    </section>
+  <img
+    src="https://i.pinimg.com/736x/92/3e/8b/923e8ba88fb3f39dde4c775aaec129a0.jpg?auto=format&fit=crop&w=600&h=900&q=80"
+    alt="Pemandangan Alam">
+</picture>
 
-    <script>
-        function add() {
-            var j = document.getElementById('j'), i = document.getElementById('i'), b = document.getElementById('box');
-            if(j.value && i.value) {
-                var a = document.createElement('article');
-                a.innerHTML = "<h4>"+j.value+"</h4><p>"+i.value+"</p>";
-                b.appendChild(a);
-                j.value = ""; i.value = ""; b.scrollTop = b.scrollHeight;
-            }
-        }
-    </script>
+    <header>
+      <h1>welcome to my website</h1>
+      <p>Di mana tinta menetes menjadi makna, dan kata-kata menemukan rumahnya dalam sajak.</p>
+    </header>
+  </section>
+
 </body>
 </html>
