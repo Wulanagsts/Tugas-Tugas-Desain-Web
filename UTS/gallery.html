@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Galeri</title>
+    <style>
+        .wadah-galeri { 
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        img { 
+            width: 250px; 
+            height: 200px; 
+            object-fit: cover;
+            transition: 0.3s; 
+        }
+
+        img:hover { 
+            transform: scale(1.1); 
+            border: 2px solid pink; 
+        }
+    </style>
+</head>
+<body>
+    <header align="center">
+        <h1>Galeri Kami</h1>
+        <nav>
+            <a href="Beranda.html">Beranda</a> |
+            <a href="gallery.html">Galeri</a> |
+            <a href="form.html">Kontak</a>
+        </nav>
+        <hr>
+    </header>
+    
+    <main>
+        <section class="wadah-galeri" align="center">
+            <header style="width: 100%;">
+                <h2>Koleksi Produk & Aktivitas</h2>
+                <p>Klik gambar untuk melihat sumber aslinya di tab baru.</p>
+            </header>
+        
+            <article>
+                <figure>
+                    <a href="https://id.pinterest.com/pin/614389574208721763/" target="_blank">
+                        <img src="https://i.pinimg.com/736x/a6/1c/a4/a61ca4ccb7140a82632d687e0f34a52f.jpg" alt="Proses menyangrai biji kopi secara tradisional di atas wajan tanah liat" title="Sangrai Kopi">
+                    </a>
+                    <figcaption>Proses sangrai tradisional</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <figure>
+                    <a href="https://id.pinterest.com/pin/190628996723428424/" target="_blank">
+                        <img src="https://i.pinimg.com/1200x/a7/bf/d1/a7bfd1b6946b1ec08710e61961357e4f.jpg" alt="Tangan petani sedang memetik buah kopi merah yang matang di pohon" title="Kebun Kopi">
+                    </a>
+                    <figcaption>Panen Kopi</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <figure>
+                    <a href="https://id.pinterest.com/pin/70509550410942959/" target="_blank">
+                        <img src="https://i.pinimg.com/736x/5f/d8/4a/5fd84af4060ba7ac0e243ff95f5fec26.jpg" alt="Tumpukan biji kopi mentah berwarna hijau yang sudah dikupas dan siap disangrai" title="Biji Kopi">
+                    </a>
+                    <figcaption>Biji Kopi Pilihan </figcaption>
+                </figure>
+            </article>
+
+        </section>
+    </main>
+
+    <hr>
+    <footer align="center">
+        <p><strong>&copy; 2026 Ruang Seduh - Banyuwangi</strong></p>
+    </footer>
+</body>
+</html>
