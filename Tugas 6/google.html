@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google STIKOM</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-rows: 60px 1fr 50px;
+            grid-template-columns: 1fr;
+            min-height: 100vh;
+        }
+        .header { 
+            grid-column: 1 / 3;
+            padding: 14px 20px; 
+            border-bottom: 1px solid grey;
+            position: sticky;
+            margin-top: 10px;
+            background: white;
+            z-index: 100;
+        }
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+        .main {
+            grid-column: 1 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        h1 { font-size: 80px; color: palevioletred; margin-bottom: 30px; }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: ghostwhite;
+            border-radius: 40px;
+            padding: 12px 20px;
+            width: 550px;
+            gap: 12px;
+            border: 1px solid wheat;
+        }
+        .search-bar input { flex-grow: 1; border: none; background: transparent; outline: none; }
+        .mode-ai {
+            font-size: 13px;
+            color: grey;
+            white-space: nowrap;
+        }
+        .info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: palevioletred;
+            color: white;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .footer {
+            text-align: center;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a>Gmail</a>
+            <a>Gambar</a>
+            <span>🔬</span>
+            <span>⋮⋮⋮</span>
+        </nav>
+    </header>
+
+    <main class="main">
+        <span class="info">STIKOM</span>
+        <h1>Google</h1>
+        <section class="search-bar">
+            <input type="text" placeholder="Telusuri Google Stikom">
+            <span>🎙️</span>
+            <span>📷</span>
+            <span class="mode-ai">✨ Mode AI</span>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Indonesia</p>
+    </footer>
+
+</body>
+</html>
