@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praktikum CSS Advanced — Transition, Transform, Animation</title>
+<style>
+  /*Ini berlaku untuk semuanya*/
+  body{
+    background-color: #88A47C;
+  }
+  /*Ini bagian nav yang menggunakan position fixed 
+  dengan transition background yang berubah saat discroll ke bawah*/
+  .navbar{
+    /*mengatur posisi dan layout*/
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between;
+    padding: 16px 5%;
+    box-sizing: border-box;
+    z-index: 1000;
+    background-color:#88A47C;
+    backdrop-filter: blur(0px);
+    will-change: background-color, box-shadow, backdrop-filter;
+
+    /* Animasi berbasis scroll*/
+    animation: navbarOnScroll linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 250px; /* mulai berubah di 0px, selesai di 250px scroll */
+  }
+
+  /*keyframes untuk perubahan gaya saat di scroll*/
+  @keyframes navbarOnScroll{
+    from{
+      background-color: #88A47C;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      backdrop-filter: blur(0px);
+    }
+    to{
+      background-color:#FFFDD0;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+    }
+  }
+  /*supaya support ke browser yang belum mendukung animation-timeline*/
+  @supports not (animation-timeline: scroll()){
+  .navbar{
+    background-color: #88A47C;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  }
+  /*elemen navigasinya*/
+  .navbar .logo{color:#4B3621; font-size:1.2rem; letter-spacing:0.5px; }
+  .navbar nav a{
+    color:#4B3621; 
+    text-decoration:none; 
+    margin-left:24px; font-size:0.95rem;
+    transition: opacity 0.3s ease; 
+  }
+  .navbar nav a:hover{ opacity:0.7; }
+
+  /*Ini bagian hero section yang menggunakan animasi fade-in+slide-up 
+  pada text disana saat halaman dibuka*/
+  .hero{
+    min-height: 90vh;
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    justify-content:center;
+    text-align:center;
+    background-color:#4B3621;
+    color:#FFFDD0;
+  }
+  /*animasi untuk efek masuk*/
+  @keyframes fadeSlideUp {
+  0%   { opacity:0; transform: translateY(40px) scale(0.97); }
+  60%  { opacity:1; transform: translateY(-6px) scale(1.01); }
+  100% { opacity:1; transform: translateY(0) scale(1); }
+}
+  .hero h1{
+    font-size: 2.6rem; 
+    margin-bottom:16px;
+    animation: fadeSlideUp 0.9s ease 0.1s both; /*animasi dengan delay awal*/
+  }
+  .hero p{
+    font-size: 1.1rem; 
+    max-width:560px; 
+    margin-bottom:28px; 
+    opacity:0.95;
+    animation: fadeSlideUp 0.9s ease 0.35s both; /* delay lebih lama agar muncul setelah judul*/
+  }
+
+  /*Ini merupakan tombol CTA dengan animasi pulse otomatis 
+  dan efek hover yang dapat memberikan feedback visual saat disentuh*/
+  @keyframes ctaPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(136,164,124,0.7); transform: scale(1); }
+  50%  { box-shadow: 0 0 0 12px rgba(136,164,124,0); transform: scale(1.04); }
+  100% { box-shadow: 0 0 0 0 rgba(136,164,124,0); transform: scale(1); }
+}
+
+.cta-btn {
+  /*untuk mengatur layout dan tampilan*/
+  display: inline-block;
+  margin: 32px auto;
+  padding: 14px 36px;
+  background: #88A47C;
+  color: #FFFDD0;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+
+  /* Animasi pulse otomatis */
+  animation: ctaPulse 2s ease-in-out infinite;
+
+  /* Transition untuk hovernya*/
+  transition: background 0.3s ease, transform 0.2s ease, letter-spacing 0.3s ease;
+}
+
+/*efek hover berhenti saat hover memberikan feedback gerakan*/
+.cta-btn:hover {
+  background: #4B3621;
+  transform: translateY(-4px) rotate(-1deg);
+  letter-spacing: 2px;
+  animation-play-state: paused;
+}
+
+/*Ini bagian grid yang ada 4 kartu yang suadah saya isi foto 
+dengan efek hover transition scale,sshadow dan warna*/
+.product-grid{
+  display:grid;
+  /*membuat layout responsif otomatis*/
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 20px;
+}
+.product-card {
+  padding: 20px;
+  border-radius: 15px;
+  background: #FFFDD0;
+  text-align: center;
+  border: 1px solid #ddd;
+  /*transisi untuk animasi hover*/
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; 
+}
+.product-image {
+  width: 100%;           
+  height: 150px;         
+  object-fit: cover;     
+  border-radius: 10px;   
+  margin-bottom: 15px;
+  transition: transform 0.4s ease; 
+}
+.product-card:hover{
+  transform: translateY(-10px) scale(1.03); /* naik + sedikit zoom */
+  box-shadow: 0 15px 30px rgba(136, 164, 124, 0.4);
+  background-color: #ffff;
+}
+.spinner-section{ text-align:center; }
+@keyframes spin{
+  from{ transform: rotate(0deg); }
+  to  { transform: rotate(360deg); }
+}
+.spinner-toggle-input{
+  position:absolute;
+  opacity:0;
+  width:1px; 
+  height:1px;
+}
+.spinner{
+  width: 50px; 
+  height:50px;
+  margin: 0 auto;
+  border: 5px solid #4B3621 ;
+  border-top-color: #FFFDD0;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  will-change: transform;
+  /* transisi opacity agar muncul/hilang tetap halus (Bab 2) */
+  transition: opacity 0.3s ease;
+}
+.spinner-toggle-input:checked ~ .spinner{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+.spinner-toggle-label{
+  display:inline-block;
+  margin-top:20px;
+  padding: 10px 24px;
+  background: #4B3621;
+  color: #FFFDD0 ; 
+  border-radius:8px; 
+  cursor:pointer;
+  user-select:none;
+  transition: background 0.3s ease,transform 0.2s ease;
+}
+.spinner-toggle-label:hover{ background:#88A47C; transform: translateY(-2px); }
+.signature-section {
+  padding: 40px 20px;
+  background-color: #3e2d1d; /* Sedikit lebih gelap dari hero agar kontras */
+  border-top: 2px solid #5a4632;
+  text-align: center;
+}
+
+.watermark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #FFFDD0;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 1px;
+}
+
+.star-icon {
+  font-size: 30px;
+  color: #FFD700;
+  display: inline-block;
+  animation: star-animation 3s infinite ease-in-out;
+}
+
+@keyframes star-animation {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.8; filter: drop-shadow(0 0 2px gold); }
+  25% { transform: scale(1.3) rotate(45deg); opacity: 1; filter: drop-shadow(0 0 10px gold); }
+  50% { transform: scale(1) rotate(90deg); opacity: 0.8; filter: drop-shadow(0 0 2px gold); }
+  75% { transform: scale(1.3) rotate(135deg); opacity: 1; filter: drop-shadow(0 0 10px gold); }
+  100% { transform: scale(1) rotate(180deg); opacity: 0.8; filter: drop-shadow(0 0 2px gold); }
+}
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+footer{ text-align:center; padding:24px; font-size:0.85rem; color: black; }
+</style>
+</head>
+<body>
+
+  <!--NAVBAR FIXED-->
+  <header class="navbar" id="navbar">
+    <div class="logo">RUANG SEDUH</div>
+    <nav>
+      <a href="#Beranda">Beranda</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#loading">Kontak</a>
+    </nav>
+  </header>
+
+  <!--HERO SECTION-->
+  <section class="hero" id="hero">
+    <h1>RUANG SEDUH</h1>
+    <p>Temukan jeda di tengah riuh dunia.<br>Ruang Seduh adalah tempat kopi asli menemukan ketenangan<br>dalam dekapan kehangatan yang tulus.</p>
+  </section>
+
+  <section style="text-align:center; background:#4B3621; padding-bottom:32px;">
+    <a class="cta-btn" href="#produk">☕lihat gallery kami</a>
+  </section>
+
+  <!--GRID KARTU PRODUK-->
+  <section id="produk">
+    <h2>Gallery Ruang Seduh</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="Kopi seduh.jpg" alt="Produk 1" class="product-image">
+        <h3>Kopi Robusta</h3>
+        <p>Kekuatan rasa di setiap tegukan.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="biji kopi.jpg" alt="Produk 2" class="product-image">
+        <h3>Biji Kopi</h3>
+        <p>Bahan baku, kualitas nomor satu.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="ice kopi americano.jpg" alt="Produk 1" class="product-image">
+        <h3>Ice Americano</h3>
+        <p>Jeda sejuk untuk hari yang sibuk.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="kopi bubuk.jpg" alt="Produk 1" class="product-image">
+        <h3>Kopi Bubuk Sangrai</h3>
+        <p>Sentuhan tradisional dalam kelembutan bubuk pilihan.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!--LOADING SPINNER-->
+  <section class="spinner-section" id="loading">
+    <h2>Loading Spinner</h2>
+    <input type="checkbox" id="spinnerToggle" class="spinner-toggle-input">
+    <div class="spinner"></div>
+    <label for="spinnerToggle" class="spinner-toggle-label">Tampilkan / Sembunyikan</label>
+  </section><br><br><br><br>
+
+  <!--ANIMASI KREATIF-->
+  <section id="signature-section">
+    <div class="watermark">
+      <span class="star-icon">★★★★★</span>
+    </div>
+</section><br><br><br>
+
+  <footer>Sindi Agustiya Wulandari / Praktikum Animasi desain Web 2026</footer>
+
+</body>
+</html>
